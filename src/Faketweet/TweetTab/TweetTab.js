@@ -1,8 +1,6 @@
 import domtoimage from 'dom-to-image';
 import { saveAs } from 'file-saver';
 
-import './TweetTab.scss';
-
 
 
 function DownloadButton ({title, onClick}) {
@@ -22,29 +20,35 @@ export default function TweetTab ({data, monthDisplayFunc, statDisplayFunc}) {
 			});
 	}
 
+	const boxStyles = {
+		fontFamily: '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif'
+	};
+
 	return (
 		<div id="TweetTab" className="px-4 lg:px-0 max-w-lg mx-auto">
-			<div id="TweetBox" className="bg-white px-4 py-4">
+			<div id="TweetBox" className="bg-white px-4 py-4 whitespace-nowrap" style={boxStyles}>
 				<div id="User">
 					<div className="flex">
 						<div id="UserImage" className="w-12 h-12 bg-blue-300 rounded-full overflow-hidden">
 							<div className="h-full w-full bg-red-400"></div>
 						</div>
-						<div id="UserName" className="px-3">
+						<div id="UserName" className="px-3 text-[15px]">
 							<div>
-								<span>{data.name}</span>
+								<span className="font-bold" style={{color: 'rgb(15, 20, 25)'}}>{data.name}</span>
 								<span></span>
 							</div>
-							<div>@{data.username}</div>
+							<div>
+								<span className="font-normal" style={{color: 'rgb(83, 100, 113)'}}>@{data.username}</span>
+							</div>
 						</div>
 					</div>
 				</div>
 
-				<div id="Content" className="mt-3">
+				<div id="Content" className="mt-3 text-[23px]" style={{color: 'rgb(15, 20, 25)'}}>
 					<div>{data.content}</div>
 				</div>
 
-				<div id="Info">
+				<div id="Info" className="text-[15px] py-[15px]" style={{color: 'rgb(83, 100, 113)'}}>
 					<div className="flex">
 						<span>{data.hours}:{data.minutes} {data.pm ? 'PM' : 'AM'}</span>
 						<span className="px-1">·</span>
@@ -54,18 +58,18 @@ export default function TweetTab ({data, monthDisplayFunc, statDisplayFunc}) {
 					</div>
 				</div>
 
-				<div id="Stats">
-					<div className="flex">
+				<div id="Stats" className="text-[14px] px-[5px] py-[15px] border-y" style={{color: 'rgb(83, 100, 113)', borderColor: 'rgb(239, 243, 244)'}}>
+					<div className="flex ch:mr-[15px]">
 						{data.retweets > 0 && <div>
-							<span className="font-bold">{statDisplayFunc(data.retweets)}</span>
+							<span className="font-bold mr-[4px]" style={{color: 'rgb(15, 20, 25)'}}>{statDisplayFunc(data.retweets)}</span>
 							<span>Retweets</span>
 						</div>}
 						{data.comments > 0 && <div>
-							<span className="font-bold">{statDisplayFunc(data.comments)}</span>
+							<span className="font-bold mr-[4px]" style={{color: 'rgb(15, 20, 25)'}}>{statDisplayFunc(data.comments)}</span>
 							<span>Quote Tweets</span>
 						</div>}
 						{data.likes > 0 && <div>
-							<span className="font-bold">{statDisplayFunc(data.likes)}</span>
+							<span className="font-bold mr-[4px]" style={{color: 'rgb(15, 20, 25)'}}>{statDisplayFunc(data.likes)}</span>
 							<span>Likes</span>
 						</div>}
 					</div>
