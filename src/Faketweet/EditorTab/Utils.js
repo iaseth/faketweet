@@ -1,6 +1,12 @@
 
 
 
+export function InputGroupContainer ({children}) {
+	return (
+		<div className="lg:flex py-4">{children}</div>
+	);
+}
+
 export function NumberInput ({
 	title="Number", num, setNum,
 	min=false, max=false,
