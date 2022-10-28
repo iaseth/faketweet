@@ -1,6 +1,7 @@
 import {
 	InputGroupContainer,
 	NumberInput,
+	SelectInput,
 	StatInput,
 	TextBoxInput,
 	TextInput,
@@ -19,7 +20,7 @@ function statDisplayFunc (v) {
 	}
 }
 
-export default function EditorTab ({data, setData}) {
+export default function EditorTab ({data, setData, CLIENT_OPTIONS}) {
 
 	const setX = (x, v) => {
 		setData({...data, [x]: v});
@@ -47,6 +48,10 @@ export default function EditorTab ({data, setData}) {
 				<NumberInput title="Day" num={data.day} setNum={v => setX('day', v)} min={1} max={31} />
 				<NumberInput title="Month" num={data.month} setNum={v => setX('month', v)} min={1} max={12} />
 				<NumberInput title="Year" num={data.year} setNum={v => setX('year', v)} min={-1000} max={2200} />
+			</InputGroupContainer>
+
+			<InputGroupContainer>
+				<SelectInput title="Client" OPTIONS={CLIENT_OPTIONS} option={data.client} setOption={v => setX('client', v)} min={3} max={50} />
 			</InputGroupContainer>
 
 			<InputGroupContainer>

@@ -8,6 +8,12 @@ import Footer from './Footer';
 
 
 export default function Faketweet () {
+	const CLIENT_OPTIONS = [
+		'Twitter for Fools',
+		'Twitter for Android',
+		'Twitter for iPhone',
+		'Twitter for Web',
+	];
 	const [data, setData] = React.useState({
 		name: 'Some Dude',
 		username: 'SomeDude',
@@ -23,7 +29,7 @@ export default function Faketweet () {
 		month: 10,
 		year: 2022,
 
-		client: 'Twitter for iPhone',
+		client: CLIENT_OPTIONS[0],
 
 		retweets: 0,
 		comments: 0,
@@ -39,7 +45,7 @@ export default function Faketweet () {
 						<TweetTab {...{data}}/>
 					</div>
 					<div className="grow">
-						<EditorTab {...{data, setData}} />
+						<EditorTab {...{data, setData, CLIENT_OPTIONS}} />
 					</div>
 				</div>
 			</div>
