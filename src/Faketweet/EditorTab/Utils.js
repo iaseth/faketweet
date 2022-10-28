@@ -1,6 +1,12 @@
 
 
 
+function InputBox ({type, defaultValue, onChange}) {
+	return <input type={type} defaultValue={defaultValue} onChange={onChange} className="shadow appearance-none border rounded w-full py-3 px-3 text-base text-gray-700 leading-tight focus:outline-none focus:shadow-outline" />;
+}
+
+
+
 export function InputGroupContainer ({children}) {
 	return (
 		<div className="lg:flex py-4">{children}</div>
@@ -35,7 +41,7 @@ export function TextInput ({
 				<h2 className="px-2 py-2 font-bold">{title}</h2>
 			</div>
 			<div>
-				<input type='text' defaultValue={text} onChange={handleChange} className="w-full text-lg px-2 py-2 border-2 border-blue-500" />
+				<InputBox type='text' defaultValue={text} onChange={handleChange} />
 			</div>
 		</div>
 	);
@@ -76,7 +82,7 @@ export function NumberInput ({
 				</h2>
 			</div>
 			<div>
-				<input type='text' defaultValue={num} onChange={handleChange} className="w-full text-lg px-2 py-2 border-2 border-blue-500" />
+				<InputBox type='text' defaultValue={num} onChange={handleChange} />
 			</div>
 		</div>
 	);
@@ -117,7 +123,7 @@ export function StatInput ({
 				</h2>
 			</div>
 			<div>
-				<input type='text' defaultValue={stat} onChange={handleChange} className="w-full text-lg px-2 py-2 border-2 border-blue-500" />
+				<InputBox type='text' defaultValue={stat} onChange={handleChange} />
 			</div>
 		</div>
 	);
