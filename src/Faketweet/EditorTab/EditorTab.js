@@ -31,6 +31,11 @@ export default function EditorTab ({data, setData}) {
 			</InputGroupContainer>
 
 			<InputGroupContainer>
+				<NumberInput title="Hour" num={data.hours} setNum={v => setX('hours', v)} min={0} max={12} />
+				<NumberInput title="Minute" num={data.minutes} setNum={v => setX('minutes', v)} min={0} max={59} />
+			</InputGroupContainer>
+
+			<InputGroupContainer>
 				<NumberInput title="day" num={data.day} setNum={v => setX('day', v)} min={1} max={31} />
 				<NumberInput title="month" num={data.month} setNum={v => setX('month', v)} min={1} max={12} />
 				<NumberInput title="year" num={data.year} setNum={v => setX('year', v)} min={-1000} max={2200} />
