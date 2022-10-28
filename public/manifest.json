@@ -1,6 +1,6 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "Faketweet",
+  "name": "Faketweet generator created by Ankur Seth.",
   "icons": [
     {
       "src": "favicon.ico",

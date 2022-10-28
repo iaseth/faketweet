@@ -1,7 +1,7 @@
 
 
 
-export default function TweetTab () {
+export default function TweetTab ({data}) {
 
 	return (
 		<div>TweetTab</div>
