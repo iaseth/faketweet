@@ -17,7 +17,7 @@ export default function Faketweet () {
 
 		hours: 10,
 		minutes: 10,
-		am: true,
+		pm: false,
 
 		day: 10,
 		month: 10,

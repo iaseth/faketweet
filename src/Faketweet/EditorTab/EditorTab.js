@@ -1,8 +1,9 @@
 import {
 	InputGroupContainer,
-	TextInput,
 	NumberInput,
 	StatInput,
+	TextInput,
+	ToggleInput,
 } from './Utils';
 
 
@@ -28,17 +29,19 @@ export default function EditorTab ({data, setData}) {
 			<InputGroupContainer>
 				<TextInput title="Name" text={data.name} setText={v => setX('name', v)} min={1} max={50} />
 				<TextInput title="Username" text={data.username} setText={v => setX('username', v)} min={1} max={50} />
+				<ToggleInput title="Verified account" toggle={data.verified} setToggle={v => setX('verified', v)} />
 			</InputGroupContainer>
 
 			<InputGroupContainer>
 				<NumberInput title="Hour" num={data.hours} setNum={v => setX('hours', v)} min={0} max={12} />
 				<NumberInput title="Minute" num={data.minutes} setNum={v => setX('minutes', v)} min={0} max={59} />
+				<ToggleInput title="PM" toggle={data.pm} setToggle={v => setX('pm', v)} />
 			</InputGroupContainer>
 
 			<InputGroupContainer>
-				<NumberInput title="day" num={data.day} setNum={v => setX('day', v)} min={1} max={31} />
-				<NumberInput title="month" num={data.month} setNum={v => setX('month', v)} min={1} max={12} />
-				<NumberInput title="year" num={data.year} setNum={v => setX('year', v)} min={-1000} max={2200} />
+				<NumberInput title="Day" num={data.day} setNum={v => setX('day', v)} min={1} max={31} />
+				<NumberInput title="Month" num={data.month} setNum={v => setX('month', v)} min={1} max={12} />
+				<NumberInput title="Year" num={data.year} setNum={v => setX('year', v)} min={-1000} max={2200} />
 			</InputGroupContainer>
 
 			<InputGroupContainer>

@@ -6,5 +6,11 @@ module.exports = {
 	theme: {
 		extend: {},
 	},
-	plugins: [],
+  plugins: [
+    function ({ addVariant }) {
+        addVariant('ch', '& > *');
+        addVariant('ch2', '& > * > *');
+        addVariant('ch3', '& > * > * > *');
+    }
+  ],
 }
