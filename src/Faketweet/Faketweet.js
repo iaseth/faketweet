@@ -34,6 +34,8 @@ export default function Faketweet () {
 		'Twitter for iPhone',
 		'Twitter for Web',
 	];
+
+	const now = new Date();
 	const [data, setData] = React.useState({
 		name: 'Some Dude',
 		username: 'SomeDude',
@@ -41,13 +43,13 @@ export default function Faketweet () {
 
 		content: 'This is a tweet.',
 
-		hours: 10,
-		minutes: 10,
-		pm: false,
+		hours: now.getHours() % 12,
+		minutes: now.getMinutes(),
+		pm: now.getHours() < 12 ? false : true,
 
-		day: 10,
-		month: 10,
-		year: 2022,
+		day: now.getDate(),
+		month: now.getMonth() + 1,
+		year: now.getYear() + 1900,
 
 		client: CLIENT_OPTIONS[0],
 
@@ -57,7 +59,7 @@ export default function Faketweet () {
 	});
 
 	return (
-		<div className="bg-blue-200 border-y-8 border-blue-900">
+		<div className="bg-slate-200 border-y-8 border-blue-900">
 			<Header />
 			<div className="lg:pb-24">
 				<div className="max-w-6xl mx-auto lg:flex lg:items-stretch lg:px-4 lg:py-4 lg:space-x-4">

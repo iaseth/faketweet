@@ -26,7 +26,7 @@ export default function TweetTab ({data, monthDisplayFunc, statDisplayFunc}) {
 
 	return (
 		<div id="TweetTab" className="px-4 lg:px-0 max-w-lg mx-auto">
-			<div id="TweetBox" className="bg-white px-4 py-4 whitespace-nowrap" style={boxStyles}>
+			<div id="TweetBox" className="bg-white px-4 py-4 whitespace-nowrap shadow" style={boxStyles}>
 				<div id="User">
 					<div className="flex">
 						<div id="UserImage" className="w-12 h-12 bg-blue-300 rounded-full overflow-hidden">
@@ -44,8 +44,8 @@ export default function TweetTab ({data, monthDisplayFunc, statDisplayFunc}) {
 					</div>
 				</div>
 
-				<div id="Content" className="mt-3 text-[23px]" style={{color: 'rgb(15, 20, 25)'}}>
-					<div>{data.content}</div>
+				<div id="Content" className="mt-3 text-[23px] overflow-hidden whitespace-normal" style={{color: 'rgb(15, 20, 25)'}}>
+					<div>{data.content.trim().split('\n').map((p, k) => <p key={k} className="min-h-[34px]">{p}</p>)}</div>
 				</div>
 
 				<div id="Info" className="text-[15px] py-[15px]" style={{color: 'rgb(83, 100, 113)'}}>

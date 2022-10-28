@@ -19,7 +19,7 @@ export function InputGroupContainer ({title=false, expand=false, children}) {
 			{title && <div className="bg-blue-500 text-white cursor-pointer select-none" onClick={() => setExpanded(!expanded)}>
 				<h2 className="px-2 py-4 text-sm font-bold text-center">{title}</h2>
 			</div>}
-			{(title === false || expanded) && <div className="md:flex md:items-end ch:grow ch:basis-0 bg-blue-100 ch:px-5 ch:py-6">{children}</div>}
+			{(title === false || expanded) && <div className="md:flex md:items-end ch:grow ch:basis-0 bg-slate-100 py-3 ch:px-5 ch:py-3">{children}</div>}
 		</div>
 	);
 }
@@ -44,7 +44,7 @@ export default function EditorTab ({
 			</InputGroupContainer>
 
 			<InputGroupContainer>
-				<TextBoxInput title="Tweet" text={data.content} setText={v => setX('content', v)} min={1} max={50} />
+				<TextBoxInput title="Tweet" text={data.content} setText={v => setX('content', v)} min={1} max={280} />
 			</InputGroupContainer>
 
 			<InputGroupContainer title="Time">
