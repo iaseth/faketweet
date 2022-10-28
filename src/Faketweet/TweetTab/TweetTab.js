@@ -5,8 +5,8 @@ import './TweetTab.scss';
 export default function TweetTab ({data, monthDisplayFunc, statDisplayFunc}) {
 
 	return (
-		<div id="TweetTab">
-			<div id="TweetBox" className="bg-white px-4 py-4">
+		<div id="TweetTab" className="px-4 lg:px-0">
+			<div id="TweetBox" className="bg-white px-4 py-4 max-w-lg mx-auto">
 				<div id="User">
 					<div className="flex">
 						<div id="UserImage" className="w-12 h-12 bg-blue-300 rounded-full">
