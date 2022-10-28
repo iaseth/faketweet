@@ -15,11 +15,11 @@ export function InputGroupContainer ({title=false, expand=false, children}) {
 	const [expanded, setExpanded] = React.useState(expand);
 
 	return (
-		<div className="border-2 border-blue-500 mb-8 rounded">
-			{title && <div className="bg-blue-500 text-white cursor-pointer select-none" onClick={() => setExpanded(!expanded)}>
+		<div className="mb-8 rounded shadow overflow-hidden">
+			{title && <div className="bg-blue-600 text-white cursor-pointer select-none" onClick={() => setExpanded(!expanded)}>
 				<h2 className="px-2 py-4 text-sm font-bold text-center">{title}</h2>
 			</div>}
-			{(title === false || expanded) && <div className="md:flex md:items-end ch:grow ch:basis-0 bg-slate-100 py-3 ch:px-5 ch:py-3">{children}</div>}
+			{(title === false || expanded) && <div className="md:flex md:items-end ch:grow ch:basis-0 bg-white py-3 ch:px-5 ch:py-3">{children}</div>}
 		</div>
 	);
 }
@@ -36,7 +36,7 @@ export default function EditorTab ({
 	};
 
 	return (
-		<div className="min-h-screen rounded px-4 py-4 lg:px-0 lg:py-0">
+		<div className="px-4 py-4 lg:px-0 lg:py-0">
 			<InputGroupContainer title="User" expand={true}>
 				<TextInput title="Name" text={data.name} setText={v => setX('name', v)} min={1} max={50} />
 				<TextInput title="Username" text={data.username} setText={v => setX('username', v)} min={1} max={50} />

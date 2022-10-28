@@ -25,7 +25,7 @@ export default function TweetTab ({data, monthDisplayFunc, statDisplayFunc}) {
 	};
 
 	return (
-		<div id="TweetTab" className="px-4 lg:px-0 max-w-lg mx-auto">
+		<div id="TweetTab" className="px-4 lg:px-0 max-w-lg mx-auto sticky top-4">
 			<div id="TweetBox" className="bg-white px-4 py-4 whitespace-nowrap shadow" style={boxStyles}>
 				<div id="User">
 					<div className="flex">

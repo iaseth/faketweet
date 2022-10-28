@@ -35,7 +35,7 @@ export function TextBoxInput ({
 
 
 function InputBox ({type, defaultValue, onChange}) {
-	return <input type={type} defaultValue={defaultValue} onChange={onChange} className="shadow appearance-none border-2 border-blue-200 rounded w-full py-3 px-3 text-base text-gray-700 leading-tight outline-none duration-300 hover:border-blue-500 focus:border-blue-500" />;
+	return <input type={type} defaultValue={defaultValue} onChange={onChange} className="bg-slate-50 shadow appearance-none border-2 border-blue-200 rounded w-full py-3 px-3 text-base text-gray-700 leading-tight outline-none duration-300 hover:border-blue-500 focus:border-blue-500" />;
 }
 
 

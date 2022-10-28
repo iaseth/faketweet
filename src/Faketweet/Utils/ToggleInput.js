@@ -14,7 +14,7 @@ export function ToggleInput ({title, toggle, setToggle}) {
 
 	return (
 		<div>
-			<div className="w-40 mx-auto select-none px-3 py-3 w-30 overflow-hidden bg-slate-50 border-2 cursor-pointer outline-none duration-300 shadow hover:border-blue-500 focus:border-blue-500"
+			<div className="w-44 select-none px-3 py-3 overflow-hidden bg-slate-50 border-2 cursor-pointer outline-none duration-300 shadow hover:border-blue-500 focus:border-blue-500"
 				onClick={() => setToggle(!toggle)} tabIndex="0" onKeyDown={handleKeyPress}>
 				<div>
 					<h2 className="text-sm text-center font-bold">{title}</h2>
