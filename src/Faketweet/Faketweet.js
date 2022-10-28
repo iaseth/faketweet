@@ -7,6 +7,26 @@ import Footer from './Footer';
 
 
 
+function statDisplayFunc (v) {
+	if (v < 1000) return v;
+
+	if (v > 1000000) {
+		return (v/1000000).toFixed(1) + 'M';
+	} else if (v > 1000) {
+		return (v/1000).toFixed(1) + 'K';
+	}
+}
+
+function monthDisplayFunc (v) {
+	const MONTHS = [
+		"Jan", "Feb", "Mar",
+		"Apr", "May", "Jun",
+		"Jul", "Aug", "Sep",
+		"Oct", "Nov", "Dec",
+	];
+	return MONTHS[v-1];
+}
+
 export default function Faketweet () {
 	const CLIENT_OPTIONS = [
 		'Twitter for Fools',
@@ -31,21 +51,21 @@ export default function Faketweet () {
 
 		client: CLIENT_OPTIONS[0],
 
-		retweets: 0,
-		comments: 0,
-		likes: 0,
+		retweets: 40,
+		comments: 20,
+		likes: 60,
 	});
 
 	return (
 		<div className="bg-blue-300 border-t-8 border-blue-900">
 			<Header />
 			<div className="lg:pb-24">
-				<div className="max-w-5xl mx-auto lg:flex lg:items-stretch lg:px-4 lg:py-4 lg:space-x-4">
+				<div className="max-w-6xl mx-auto lg:flex lg:items-stretch lg:px-4 lg:py-4 lg:space-x-4">
 					<div className="lg:w-96">
-						<TweetTab {...{data}}/>
+						<TweetTab {...{data, monthDisplayFunc, statDisplayFunc}}/>
 					</div>
 					<div className="grow">
-						<EditorTab {...{data, setData, CLIENT_OPTIONS}} />
+						<EditorTab {...{data, setData, monthDisplayFunc, statDisplayFunc, CLIENT_OPTIONS}} />
 					</div>
 				</div>
 			</div>

@@ -10,17 +10,10 @@ import {
 
 
 
-function statDisplayFunc (v) {
-	if (v < 1000) return v;
-
-	if (v > 1000000) {
-		return (v/1000000).toFixed(1) + 'M';
-	} else if (v > 1000) {
-		return (v/1000).toFixed(1) + 'K';
-	}
-}
-
-export default function EditorTab ({data, setData, CLIENT_OPTIONS}) {
+export default function EditorTab ({
+	data, setData,
+	monthDisplayFunc, statDisplayFunc, CLIENT_OPTIONS
+}) {
 
 	const setX = (x, v) => {
 		setData({...data, [x]: v});
@@ -46,7 +39,7 @@ export default function EditorTab ({data, setData, CLIENT_OPTIONS}) {
 
 			<InputGroupContainer>
 				<NumberInput title="Day" num={data.day} setNum={v => setX('day', v)} min={1} max={31} />
-				<NumberInput title="Month" num={data.month} setNum={v => setX('month', v)} min={1} max={12} />
+				<NumberInput title="Month" num={data.month} setNum={v => setX('month', v)} min={1} max={12} displayFunc={monthDisplayFunc} />
 				<NumberInput title="Year" num={data.year} setNum={v => setX('year', v)} min={-1000} max={2200} />
 			</InputGroupContainer>
 
