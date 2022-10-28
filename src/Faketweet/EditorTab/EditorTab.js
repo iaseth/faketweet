@@ -1,5 +1,6 @@
 import {
 	InputGroupContainer,
+	TextInput,
 	NumberInput,
 	StatInput,
 } from './Utils';
@@ -23,13 +24,18 @@ export default function EditorTab ({data, setData}) {
 	};
 
 	return (
-		<div className="min-h-screen bg-white rounded px-4 py-4">
-			<h2>EditorTab</h2>
+		<div className="min-h-screen bg-blue-100 rounded px-4 py-4">
+			<InputGroupContainer>
+				<TextInput title="Name" text={data.name} setText={v => setX('name', v)} min={1} max={50} />
+				<TextInput title="Username" text={data.username} setText={v => setX('username', v)} min={1} max={50} />
+			</InputGroupContainer>
+
 			<InputGroupContainer>
 				<NumberInput title="day" num={data.day} setNum={v => setX('day', v)} min={1} max={31} />
 				<NumberInput title="month" num={data.month} setNum={v => setX('month', v)} min={1} max={12} />
 				<NumberInput title="year" num={data.year} setNum={v => setX('year', v)} min={-1000} max={2200} />
 			</InputGroupContainer>
+
 			<InputGroupContainer>
 				<StatInput title="retweets" stat={data.retweets} setStat={v => setX('retweets', v)} displayFunc={statDisplayFunc} />
 				<StatInput title="comments" stat={data.comments} setStat={v => setX('comments', v)} displayFunc={statDisplayFunc} />
