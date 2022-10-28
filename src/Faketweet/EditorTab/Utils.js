@@ -33,22 +33,15 @@ export function ToggleInput ({title, toggle, setToggle}) {
 
 export function InputGroupContainer ({children}) {
 	return (
-		<div className="md:flex items-end py-4 ch:grow ch:basis-0 px-3 py-3">{children}</div>
+		<div className="md:flex md:items-end ch:grow ch:basis-0 bg-blue-200 mb-4 px-3 py-5 ch:px-2 ch:py-2">{children}</div>
 	);
 }
 
 
 
-function InputBox ({type, defaultValue, onChange}) {
-	return <input type={type} defaultValue={defaultValue} onChange={onChange} className="shadow appearance-none border-2 border-blue-200 rounded w-full py-3 px-3 text-base text-gray-700 leading-tight outline-none duration-300 hover:border-blue-500 focus:border-blue-500" />;
-}
-
-
-
-export function TextInput ({
-	title="Text", text, setText,
+export function TextBoxInput ({
+	title="TextBox", text, setText,
 	min=false, max=false,
-	displayFunc = v => v,
 	validatorFunc = v => true
 }) {
 
@@ -66,9 +59,48 @@ export function TextInput ({
 	};
 
 	return (
-		<div className="px-2 py-2">
+		<div>
 			<div>
-				<h2 className="px-2 py-2 font-bold">{title}</h2>
+				<h2 className="px-2 py-2 font-bold text-sm">{title}</h2>
+			</div>
+			<div>
+				<textarea rows={4} defaultValue={text} onChange={handleChange} className="shadow appearance-none border-2 border-blue-200 rounded w-full py-3 px-3 text-base text-gray-700 leading-tight outline-none duration-300 hover:border-blue-500 focus:border-blue-500"></textarea>
+			</div>
+		</div>
+	);
+}
+
+
+
+function InputBox ({type, defaultValue, onChange}) {
+	return <input type={type} defaultValue={defaultValue} onChange={onChange} className="shadow appearance-none border-2 border-blue-200 rounded w-full py-3 px-3 text-base text-gray-700 leading-tight outline-none duration-300 hover:border-blue-500 focus:border-blue-500" />;
+}
+
+
+
+export function TextInput ({
+	title="Text", text, setText,
+	min=false, max=false,
+	validatorFunc = v => true
+}) {
+
+	const validate = v => {
+		if (min !== false && min > v.length) return false;
+		if (max !== false && max < v.length) return false;
+		return validatorFunc(v) ? true : false;
+	};
+
+	const handleChange = event => {
+		const v = event.target.value.trim();
+		if (validate(v)) {
+			setText(v);
+		}
+	};
+
+	return (
+		<div>
+			<div>
+				<h2 className="px-2 py-2 font-bold text-sm">{title}</h2>
 			</div>
 			<div>
 				<InputBox type='text' defaultValue={text} onChange={handleChange} />
@@ -104,11 +136,11 @@ export function NumberInput ({
 	};
 
 	return (
-		<div className="px-2 py-2">
+		<div>
 			<div>
-				<h2 className="px-2 py-2 flex">
+				<h2 className="px-2 py-2 flex font-bold">
 					<span className="grow text-sm mr-2">{title}</span>
-					<span className="font-bold">{displayFunc(num)}</span>
+					<span className="text-base">{displayFunc(num)}</span>
 				</h2>
 			</div>
 			<div>
@@ -145,7 +177,7 @@ export function StatInput ({
 	};
 
 	return (
-		<div className="px-2 py-2">
+		<div>
 			<div>
 				<h2 className="px-2 py-2 text-center">
 					<span className="font-bold mr-2">{displayFunc(stat)}</span>

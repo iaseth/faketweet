@@ -2,6 +2,7 @@ import {
 	InputGroupContainer,
 	NumberInput,
 	StatInput,
+	TextBoxInput,
 	TextInput,
 	ToggleInput,
 } from './Utils';
@@ -30,6 +31,10 @@ export default function EditorTab ({data, setData}) {
 				<TextInput title="Name" text={data.name} setText={v => setX('name', v)} min={1} max={50} />
 				<TextInput title="Username" text={data.username} setText={v => setX('username', v)} min={1} max={50} />
 				<ToggleInput title="Verified account" toggle={data.verified} setToggle={v => setX('verified', v)} />
+			</InputGroupContainer>
+
+			<InputGroupContainer>
+				<TextBoxInput title="Tweet" text={data.content} setText={v => setX('content', v)} min={1} max={50} />
 			</InputGroupContainer>
 
 			<InputGroupContainer>
