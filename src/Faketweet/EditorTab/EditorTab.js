@@ -28,7 +28,7 @@ export function InputGroupContainer ({title=false, expand=false, children}) {
 
 export default function EditorTab ({
 	data, setData,
-	monthDisplayFunc, statDisplayFunc, CLIENT_OPTIONS
+	minuteDisplayFunc, monthDisplayFunc, statDisplayFunc, CLIENT_OPTIONS
 }) {
 
 	const setX = (x, v) => {
@@ -50,7 +50,7 @@ export default function EditorTab ({
 
 			<InputGroupContainer title="Time">
 				<NumberInput title="Hour" num={data.hours} setNum={v => setX('hours', v)} min={0} max={12} />
-				<NumberInput title="Minute" num={data.minutes} setNum={v => setX('minutes', v)} min={0} max={59} />
+				<NumberInput title="Minute" num={data.minutes} setNum={v => setX('minutes', v)} min={0} max={59} displayFunc={minuteDisplayFunc} />
 				<ToggleInput title="PM" toggle={data.pm} setToggle={v => setX('pm', v)} />
 			</InputGroupContainer>
 

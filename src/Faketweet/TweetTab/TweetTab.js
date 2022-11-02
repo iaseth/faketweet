@@ -9,7 +9,7 @@ function DownloadButton ({title, onClick}) {
 	);
 }
 
-export default function TweetTab ({data, monthDisplayFunc, statDisplayFunc}) {
+export default function TweetTab ({data, minuteDisplayFunc, monthDisplayFunc, statDisplayFunc}) {
 
 	function downloadImage () {
 		const e = document.getElementById('TweetBox');
@@ -50,7 +50,7 @@ export default function TweetTab ({data, monthDisplayFunc, statDisplayFunc}) {
 
 				<div id="Info" className="text-[15px] py-[15px]" style={{color: 'rgb(83, 100, 113)'}}>
 					<div className="flex">
-						<span>{data.hours}:{data.minutes} {data.pm ? 'PM' : 'AM'}</span>
+						<span>{data.hours}:{minuteDisplayFunc(data.minutes)} {data.pm ? 'PM' : 'AM'}</span>
 						<span className="px-1">·</span>
 						<span>{monthDisplayFunc(data.month)} {data.day}, {data.year}</span>
 						<span className="px-1">·</span>

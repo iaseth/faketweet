@@ -27,6 +27,8 @@ function monthDisplayFunc (v) {
 	return MONTHS[v-1];
 }
 
+const minuteDisplayFunc = (m) => (m < 10) ? `0${m}` : m;
+
 export default function Faketweet () {
 	const CLIENT_OPTIONS = [
 		'Twitter for Fools',
@@ -64,10 +66,10 @@ export default function Faketweet () {
 			<div className="lg:pb-24">
 				<div className="max-w-6xl mx-auto lg:flex lg:items-stretch lg:px-4 lg:py-4 lg:space-x-4">
 					<div className="lg:w-96">
-						<TweetTab {...{data, monthDisplayFunc, statDisplayFunc}}/>
+						<TweetTab {...{data, minuteDisplayFunc, monthDisplayFunc, statDisplayFunc}}/>
 					</div>
 					<div className="grow">
-						<EditorTab {...{data, setData, monthDisplayFunc, statDisplayFunc, CLIENT_OPTIONS}} />
+						<EditorTab {...{data, setData, minuteDisplayFunc, monthDisplayFunc, statDisplayFunc, CLIENT_OPTIONS}} />
 					</div>
 				</div>
 			</div>

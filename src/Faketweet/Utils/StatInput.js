@@ -1,4 +1,7 @@
+import React from 'react';
+
 import {InputBox} from './TextInput';
+import {PlusMinusButton} from './common';
 
 
 
@@ -9,6 +12,8 @@ export function StatInput ({
 	validatorFunc = v => true
 }) {
 
+	const inputElement = React.useRef(null);
+
 	const validate = v => {
 		if (isNaN(v)) return;
 		if (min !== false && min > v) return false;
@@ -16,14 +21,19 @@ export function StatInput ({
 		return validatorFunc(v) ? true : false;
 	};
 
-	const handleChange = event => {
-		const value = event.target.value.trim();
-		if (isNaN(value)) return;
+	const setStatSafe = (v) => {
+		if (isNaN(v)) return;
 
-		const v = parseInt(value);
+		v = parseInt(v);
 		if (validate(v)) {
 			setStat(v);
+			inputElement.current.value = v;
 		}
+	};
+
+	const handleChange = event => {
+		const value = event.target.value.trim();
+		setStatSafe(value);
 	};
 
 	return (
@@ -34,8 +44,10 @@ export function StatInput ({
 					<span className="text-sm">{title}</span>
 				</h2>
 			</div>
-			<div>
-				<InputBox type='text' defaultValue={stat} onChange={handleChange} />
+			<div className="flex">
+				<PlusMinusButton onClick={() => setStatSafe(stat/2)} text="-" />
+				<input type="text" ref={inputElement} defaultValue={stat} onChange={handleChange} className="bg-slate-50 shadow appearance-none border-2 border-blue-200 w-full py-3 px-3 text-base text-gray-700 leading-tight outline-none duration-300 hover:border-blue-500 focus:border-blue-500" />
+				<PlusMinusButton onClick={() => setStatSafe(stat*2)} />
 			</div>
 		</div>
 	);
