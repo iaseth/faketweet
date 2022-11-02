@@ -19,7 +19,7 @@ export function InputGroupContainer ({title=false, expand=false, children}) {
 			{title && <div className="bg-blue-600 text-white cursor-pointer select-none" onClick={() => setExpanded(!expanded)}>
 				<h2 className="px-2 py-4 text-sm font-bold text-center">{title}</h2>
 			</div>}
-			{(title === false || expanded) && <div className="md:flex md:items-end ch:grow ch:basis-0 bg-white py-3 ch:px-5 ch:py-3">{children}</div>}
+			{(title === false || expanded) && <div className="md:flex ch:grow ch:basis-0 bg-white py-3 ch:px-5 ch:py-3">{children}</div>}
 		</div>
 	);
 }
@@ -43,8 +43,9 @@ export default function EditorTab ({
 				<ToggleInput title="Verified account" toggle={data.verified} setToggle={v => setX('verified', v)} />
 			</InputGroupContainer>
 
-			<InputGroupContainer>
+			<InputGroupContainer title="Content">
 				<TextBoxInput title="Tweet" text={data.content} setText={v => setX('content', v)} min={1} max={280} />
+				<SelectInput title="Client" OPTIONS={CLIENT_OPTIONS} option={data.client} setOption={v => setX('client', v)} min={3} max={50} />
 			</InputGroupContainer>
 
 			<InputGroupContainer title="Time">
@@ -57,10 +58,6 @@ export default function EditorTab ({
 				<NumberInput title="Day" num={data.day} setNum={v => setX('day', v)} min={1} max={31} />
 				<NumberInput title="Month" num={data.month} setNum={v => setX('month', v)} min={1} max={12} displayFunc={monthDisplayFunc} />
 				<NumberInput title="Year" num={data.year} setNum={v => setX('year', v)} min={-1000} max={2200} />
-			</InputGroupContainer>
-
-			<InputGroupContainer>
-				<SelectInput title="Client" OPTIONS={CLIENT_OPTIONS} option={data.client} setOption={v => setX('client', v)} min={3} max={50} />
 			</InputGroupContainer>
 
 			<InputGroupContainer title="Stats">
