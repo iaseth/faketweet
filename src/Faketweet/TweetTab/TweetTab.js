@@ -41,7 +41,7 @@ export default function TweetTab ({data, preview, minuteDisplayFunc, monthDispla
 					<div className="flex">
 						<div id="UserImage" className="w-12 h-12 bg-blue-300 rounded-full overflow-hidden">
 							<div className="h-full w-full bg-red-400">
-								{preview &&  <img src={preview} />}
+								{preview &&  <img src={preview} alt="" />}
 							</div>
 						</div>
 						<div id="UserName" className="px-3 text-[15px]">

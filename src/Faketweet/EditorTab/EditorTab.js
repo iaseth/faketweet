@@ -14,10 +14,16 @@ import {
 
 export function InputGroupContainer ({title=false, expand=false, children}) {
 	const [expanded, setExpanded] = React.useState(expand);
+	const handleKeypress = (e) => {
+		if (e.keyCode === 32) {
+			e.preventDefault();
+			setExpanded(!expanded);
+		}
+	};
 
 	return (
 		<div className="mb-8 rounded shadow overflow-hidden">
-			{title && <div className="bg-blue-600 text-white cursor-pointer select-none" onClick={() => setExpanded(!expanded)}>
+			{title && <div className="bg-blue-600 text-white cursor-pointer select-none" tabIndex="0" onKeyDown={handleKeypress} onClick={() => setExpanded(!expanded)}>
 				<h2 className="px-2 py-4 text-sm font-bold text-center">{title}</h2>
 			</div>}
 			{(title === false || expanded) && <div className="md:flex ch:grow ch:basis-0 bg-white py-3 ch:px-5 ch:py-3">{children}</div>}

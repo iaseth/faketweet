@@ -64,7 +64,7 @@ export default function Faketweet () {
 	const [preview, setPreview] = React.useState(null);
 
 	return (
-		<div className="bg-slate-200 border-y-8 border-blue-900">
+		<div className="bg-slate-200 border-t-8 border-blue-900">
 			<Header />
 			<div className="lg:pb-24">
 				<div className="max-w-6xl mx-auto lg:flex lg:items-stretch lg:px-4 lg:py-4 lg:space-x-4">
