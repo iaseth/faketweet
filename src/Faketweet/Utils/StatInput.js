@@ -1,6 +1,5 @@
 import React from 'react';
 
-import {InputBox} from './TextInput';
 import {PlusMinusButton} from './common';
 
 
