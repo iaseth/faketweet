@@ -1,6 +1,7 @@
 import React from 'react';
 
 import {
+	ImageInput,
 	NumberInput,
 	SelectInput,
 	StatInput,
@@ -27,7 +28,7 @@ export function InputGroupContainer ({title=false, expand=false, children}) {
 
 
 export default function EditorTab ({
-	data, setData,
+	data, setData, preview, setPreview,
 	minuteDisplayFunc, monthDisplayFunc, statDisplayFunc, CLIENT_OPTIONS
 }) {
 
@@ -41,6 +42,10 @@ export default function EditorTab ({
 				<TextInput title="Name" text={data.name} setText={v => setX('name', v)} min={1} max={50} />
 				<TextInput title="Username" text={data.username} setText={v => setX('username', v)} min={1} max={50} />
 				<ToggleInput title="Verified account" toggle={data.verified} setToggle={v => setX('verified', v)} />
+			</InputGroupContainer>
+
+			<InputGroupContainer title="Image" expand={true}>
+				<ImageInput {...{preview, setPreview}} />
 			</InputGroupContainer>
 
 			<InputGroupContainer title="Content">

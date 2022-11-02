@@ -39,6 +39,7 @@ export default function Faketweet () {
 
 	const now = new Date();
 	const [data, setData] = React.useState({
+		image: 'User Image',
 		name: 'Some Dude',
 		username: 'SomeDude',
 		verified: false,
@@ -60,16 +61,18 @@ export default function Faketweet () {
 		likes: 60,
 	});
 
+	const [preview, setPreview] = React.useState(null);
+
 	return (
 		<div className="bg-slate-200 border-y-8 border-blue-900">
 			<Header />
 			<div className="lg:pb-24">
 				<div className="max-w-6xl mx-auto lg:flex lg:items-stretch lg:px-4 lg:py-4 lg:space-x-4">
 					<div className="lg:w-96">
-						<TweetTab {...{data, minuteDisplayFunc, monthDisplayFunc, statDisplayFunc}}/>
+						<TweetTab {...{data, preview, minuteDisplayFunc, monthDisplayFunc, statDisplayFunc}}/>
 					</div>
 					<div className="grow">
-						<EditorTab {...{data, setData, minuteDisplayFunc, monthDisplayFunc, statDisplayFunc, CLIENT_OPTIONS}} />
+						<EditorTab {...{data, setData, preview, setPreview, minuteDisplayFunc, monthDisplayFunc, statDisplayFunc, CLIENT_OPTIONS}} />
 					</div>
 				</div>
 			</div>

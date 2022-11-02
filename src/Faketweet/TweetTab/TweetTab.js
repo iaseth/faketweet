@@ -19,7 +19,7 @@ function DownloadButton ({title, onClick}) {
 	);
 }
 
-export default function TweetTab ({data, minuteDisplayFunc, monthDisplayFunc, statDisplayFunc}) {
+export default function TweetTab ({data, preview, minuteDisplayFunc, monthDisplayFunc, statDisplayFunc}) {
 
 	function downloadImage () {
 		const e = document.getElementById('TweetBox');
@@ -40,7 +40,9 @@ export default function TweetTab ({data, minuteDisplayFunc, monthDisplayFunc, st
 				<div id="User">
 					<div className="flex">
 						<div id="UserImage" className="w-12 h-12 bg-blue-300 rounded-full overflow-hidden">
-							<div className="h-full w-full bg-red-400"></div>
+							<div className="h-full w-full bg-red-400">
+								{preview &&  <img src={preview} />}
+							</div>
 						</div>
 						<div id="UserName" className="px-3 text-[15px]">
 							<div className="flex">
