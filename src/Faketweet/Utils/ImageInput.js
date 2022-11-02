@@ -24,7 +24,7 @@ export function ImageInput ({preview, setPreview}) {
 
 	return (
 		<div className="flex items-center">
-			<div className="w-20 h-20 border-4 border-blue-600 mr-4 rounded-full overflow-hidden">
+			<div className="w-20 h-20 border-4 border-blue-600 mr-4 rounded-full overflow-hidden bg-red-400">
 				{selectedFile &&  <img src={preview} alt="" />}
 			</div>
 			<div className="">

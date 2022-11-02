@@ -26,7 +26,7 @@ export function InputGroupContainer ({title=false, expand=false, children}) {
 			{title && <div className="bg-blue-600 text-white cursor-pointer select-none" tabIndex="0" onKeyDown={handleKeypress} onClick={() => setExpanded(!expanded)}>
 				<h2 className="px-2 py-4 text-sm font-bold text-center">{title}</h2>
 			</div>}
-			{(title === false || expanded) && <div className="md:flex ch:grow ch:basis-0 bg-white py-3 ch:px-5 ch:py-3">{children}</div>}
+			{(title === false || expanded) && <div className="md:flex ch:grow ch:basis-0 bg-white px-2 py-3 ch:px-3 ch:py-3">{children}</div>}
 		</div>
 	);
 }
@@ -47,7 +47,7 @@ export default function EditorTab ({
 			<InputGroupContainer title="User" expand={true}>
 				<TextInput title="Name" text={data.name} setText={v => setX('name', v)} min={1} max={50} />
 				<TextInput title="Username" text={data.username} setText={v => setX('username', v)} min={1} max={50} />
-				<ToggleInput title="Verified account" toggle={data.verified} setToggle={v => setX('verified', v)} />
+				<ToggleInput title="Badge" toggle={data.verified} setToggle={v => setX('verified', v)} />
 			</InputGroupContainer>
 
 			<InputGroupContainer title="Image" expand={true}>

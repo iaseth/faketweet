@@ -36,7 +36,7 @@ export function NumberInput ({
 	};
 
 	return (
-		<div>
+		<div className="overflow-hidden">
 			<div>
 				<h2 className="px-2 py-2 flex font-bold">
 					<span className="grow text-sm mr-2">{title}</span>

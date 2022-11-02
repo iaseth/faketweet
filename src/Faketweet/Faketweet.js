@@ -10,7 +10,9 @@ import Footer from './Footer';
 function statDisplayFunc (v) {
 	if (v < 1000) return v;
 
-	if (v > 1000000) {
+	if (v > 1000000000) {
+		return (v/1000000000).toFixed(1) + 'B';
+	} else if (v > 1000000) {
 		return (v/1000000).toFixed(1) + 'M';
 	} else if (v > 1000) {
 		return (v/1000).toFixed(1) + 'K';
@@ -71,7 +73,7 @@ export default function Faketweet () {
 					<div className="lg:w-96">
 						<TweetTab {...{data, preview, minuteDisplayFunc, monthDisplayFunc, statDisplayFunc}}/>
 					</div>
-					<div className="grow">
+					<div className="grow max-w-2xl mx-auto">
 						<EditorTab {...{data, setData, preview, setPreview, minuteDisplayFunc, monthDisplayFunc, statDisplayFunc, CLIENT_OPTIONS}} />
 					</div>
 				</div>

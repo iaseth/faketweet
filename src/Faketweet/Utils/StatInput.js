@@ -36,7 +36,7 @@ export function StatInput ({
 	};
 
 	return (
-		<div>
+		<div className="overflow-hidden">
 			<div>
 				<h2 className="px-2 py-2 text-center">
 					<span className="font-bold mr-2">{displayFunc(stat)}</span>
